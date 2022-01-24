@@ -1,10 +1,6 @@
-const images =[
-    "0.jpg",
-    "1.jpg",
-    "2.jpg"
-]
+const images = ["0.jpg", "1.jpg", "2.jpg"];
 const chosenImage = images[Math.floor(Math.random() * images.length)];
 
-const bgImage = document.createElement("img"); //ÀÌ¹ÌÁö »ı¼º
-bgImage.src = `img/${chosenImage}`; //¼Ò½º »ı¼º
-document.body.appendChild(bgImage); //htmlÀÇ body¾È¿¡ Æ÷ÇÔ½ÃÅ´
+const bgImage = document.createElement("img"); //ì´ë¯¸ì§€ ìƒì„±
+bgImage.src = `img/${chosenImage}`; //ì†ŒìŠ¤ ìƒì„±
+document.body.appendChild(bgImage); //htmlì˜ bodyì•ˆì— í¬í•¨ì‹œí‚´

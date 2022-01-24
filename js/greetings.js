@@ -3,31 +3,30 @@ const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAME = "hidden";
-const USERNAME_KEY = "username"; 
+const USERNAME_KEY = "username";
 
 function onLoginSubmit(event) {
-    event.preventDefault();
-    loginForm.classList.add(HIDDEN_CLASSNAME); //formÀ» ¼û±è
-    const username = loginInput.value; //À¯ÀúÀÇ ÀÌ¸§À» º¯¼ö·Î ÀúÀå
-    localStorage.setItem(USERNAME_KEY, username); //·ÎÄÃ½ºÅä¸®Áö¿¡ ÀÌ¸§ ÀúÀå
-    paintGreetings(username);
+  event.preventDefault();
+  loginForm.classList.add(HIDDEN_CLASSNAME); //formì„ ìˆ¨ê¹€
+  const username = loginInput.value; //ìœ ì €ì˜ ì´ë¦„ì„ ë³€ìˆ˜ë¡œ ì €ì¥
+  localStorage.setItem(USERNAME_KEY, username); //ë¡œì»¬ìŠ¤í† ë¦¬ì§€ì— ì´ë¦„ ì €ì¥
+  paintGreetings(username);
 }
 
-function paintGreetings(username){
-    greeting.innerText = `Hello ${username}`; //greeting¿¡ À¯ÀúÀÌ¸§ Ãß°¡
-    greeting.classList.remove(HIDDEN_CLASSNAME); //hiddenÀ» Áö¿ö greetingÀ» display
+function paintGreetings(username) {
+  greeting.innerText = `Hello ${username}`; //greetingì— ìœ ì €ì´ë¦„ ì¶”ê°€
+  greeting.classList.remove(HIDDEN_CLASSNAME); //hiddenì„ ì§€ì›Œ greetingì„ display
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
-if(savedUsername === null){
-    //·ÎÄÃ½ºÅä¸®Áö¿¡ ÀúÀåµÈ °ªÀÌ ¾ø´Â °æ¿ì
-    //show the form
-    loginForm.classList.remove(HIDDEN_CLASSNAME); //hiddenÀ» Áö¿ö formÀ» display
-    loginForm.addEventListener("submit", onLoginSubmit); //À¯Àú°¡ form¿¡ ÀÔ·ÂÇÏ¿© Á¤º¸¸¦ submitÇÒ ¼ö ÀÖµµ·Ï
-} 
-else{
-    //·ÎÄÃ½ºÅä¸®Áö¿¡ ÀúÀåµÈ °ªÀÌ ÀÖ´Â °æ¿ì
-    //hide the form and show the greetings
-    paintGreetings(savedUsername);
+if (savedUsername === null) {
+  //ë¡œì»¬ìŠ¤í† ë¦¬ì§€ì— ì €ì¥ëœ ê°’ì´ ì—†ëŠ” ê²½ìš°
+  //show the form
+  loginForm.classList.remove(HIDDEN_CLASSNAME); //hiddenì„ ì§€ì›Œ formì„ display
+  loginForm.addEventListener("submit", onLoginSubmit); //ìœ ì €ê°€ formì— ì…ë ¥í•˜ì—¬ ì •ë³´ë¥¼ submití•  ìˆ˜ ìˆë„ë¡
+} else {
+  //ë¡œì»¬ìŠ¤í† ë¦¬ì§€ì— ì €ì¥ëœ ê°’ì´ ìˆëŠ” ê²½ìš°
+  //hide the form and show the greetings
+  paintGreetings(savedUsername);
 }
